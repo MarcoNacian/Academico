@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #container{
+            padding: 50px;
+            background: #EEE;
+        }
+        #container h1{
+            font-size: 144px;
+            font-family: sans-serif;
+            color: #0080A8;
+        }
+    </style>    
+</head>
+
+
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        //se declara el selector donde se rendereara el componente
+        var destRender = document.querySelector("#container");
+
+        //Componente HelloWorld
+        //Se crea la clase js (nombre del componente)
+        class HelloWorld extends React.Component{
+            //Lo que regresa el componente
+            render(){
+                return  <p>Hello, {this.props.greetTarget}</p>
+            }
+        };
+
+        //Se renderea el componente (toma dos valores componentes y selector de rendereo *variable definida al principio*)
+        ReactDOM.render(
+            <div>
+                <HelloWorld greetTarget="Marco"/>
+                <HelloWorld greetTarget="Luis"/>
+                <HelloWorld greetTarget="Juan"/>
+                <HelloWorld greetTarget="Marcelo"/>
+            </div>,
+            destRender            
+        );
+    </script>
+    
+</body>
+</html>
